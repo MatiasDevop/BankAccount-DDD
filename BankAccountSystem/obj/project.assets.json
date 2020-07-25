@@ -1,0 +1,128 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "BankAccountSystem.AppService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BankAccountSystem.Model": "1.0.0",
+          "BankAccountSystem.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankAccountSystem.AppService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankAccountSystem.AppService.dll": {}
+        }
+      },
+      "BankAccountSystem.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/BankAccountSystem.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankAccountSystem.Model.dll": {}
+        }
+      },
+      "BankAccountSystem.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BankAccountSystem.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankAccountSystem.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankAccountSystem.Repository.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BankAccountSystem.AppService/1.0.0": {
+      "type": "project",
+      "path": "../BankAccountSystem.AppService/BankAccountSystem.AppService.csproj",
+      "msbuildProject": "../BankAccountSystem.AppService/BankAccountSystem.AppService.csproj"
+    },
+    "BankAccountSystem.Model/1.0.0": {
+      "type": "project",
+      "path": "../BankAccountSystem.Model/BankAccountSystem.Model.csproj",
+      "msbuildProject": "../BankAccountSystem.Model/BankAccountSystem.Model.csproj"
+    },
+    "BankAccountSystem.Repository/1.0.0": {
+      "type": "project",
+      "path": "../BankAccountSystem.Repository/BankAccountSystem.Repository.csproj",
+      "msbuildProject": "../BankAccountSystem.Repository/BankAccountSystem.Repository.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "BankAccountSystem.AppService >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\nestdev\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\NET Development\\BankAccountSystem\\BankAccountSystem\\BankAccountSystem.csproj",
+      "projectName": "BankAccountSystem",
+      "projectPath": "D:\\NET Development\\BankAccountSystem\\BankAccountSystem\\BankAccountSystem.csproj",
+      "packagesPath": "C:\\Users\\nestdev\\.nuget\\packages\\",
+      "outputPath": "D:\\NET Development\\BankAccountSystem\\BankAccountSystem\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\nestdev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "D:\\NET Development\\BankAccountSystem\\BankAccountSystem.AppService\\BankAccountSystem.AppService.csproj": {
+              "projectPath": "D:\\NET Development\\BankAccountSystem\\BankAccountSystem.AppService\\BankAccountSystem.AppService.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
