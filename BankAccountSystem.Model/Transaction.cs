@@ -6,12 +6,6 @@ namespace BankAccountSystem.Model
 {
     public class Transaction
     {
-        public decimal Deposit { get; internal set; }
-        public decimal Withdrawal { get; internal set; }
-        public string Reference
-        { get; internal set; }
-        public DateTime Date
-        { get; internal set; }
         public Transaction(decimal deposit, decimal withdrawal, string reference, DateTime date)
         {
             this.Deposit = deposit;
@@ -20,6 +14,15 @@ namespace BankAccountSystem.Model
             this.Date = date;
         }
 
-        
+        public long TransactionId { get; set; }
+        public decimal Deposit { get; internal set; }
+        public decimal Withdrawal { get; internal set; }
+        public string Reference
+        { get; internal set; }
+        public DateTime Date
+        { get; internal set; }
+
+        public BankAccount BankAccount { get; set; }
+
     }
 }

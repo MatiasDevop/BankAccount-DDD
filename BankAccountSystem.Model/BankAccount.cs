@@ -9,7 +9,7 @@ namespace BankAccountSystem.Model
         private decimal _balance;
         private Guid _accountNo;
         private string _customerRef;
-        private IList<Transaction> _transactions;
+        private readonly IList<Transaction> _transactions;
 
         public BankAccount() : this(Guid.NewGuid(), 0, new List<Transaction>(), "")
         {
@@ -32,9 +32,11 @@ namespace BankAccountSystem.Model
         public decimal Balance
         {
             get { return _balance; }
-            internal set { _balance = value; }
+             set { _balance = value; }
         }
 
+        public Guid BankAccountId { get; set; }
+        public List<Transaction> Transaction { get; set; }
         public string CustomerRef
         {
             get { return _customerRef;}
