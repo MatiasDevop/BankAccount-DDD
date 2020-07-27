@@ -10,7 +10,7 @@ namespace BankAccountSystem.Repository
 {
     public class BankAccountRepository : IBankAccountRepository
     {
-        private BankAccountContext context;
+        private readonly BankAccountContext context;
 
         public BankAccountRepository(BankAccountContext ctx)
         {
@@ -21,7 +21,7 @@ namespace BankAccountSystem.Repository
         {
             context.BankAccounts.Add(bankAccount);
             context.SaveChanges();
-            updateOrCreateTransaction(bankAccount);
+            UpdateOrCreateTransaction(bankAccount);
         }
 
         public IEnumerable<BankAccount> FindAll()
@@ -54,9 +54,9 @@ namespace BankAccountSystem.Repository
             account.CustomerRef = bankAccount.CustomerRef;
             account.Balance = bankAccount.Balance;
             context.SaveChanges();
-            updateOrCreateTransaction(bankAccount);
+            UpdateOrCreateTransaction(bankAccount);
         }
-        private void updateOrCreateTransaction(BankAccount bankAccount)
+        private void UpdateOrCreateTransaction(BankAccount bankAccount)
         {
             BankAccount account = context.BankAccounts.FirstOrDefault(x=>x.BankAccountId == bankAccount.BankAccountId);
             var currentTrans = context.Transactions.Where(x => x.BankAccount.BankAccountId == bankAccount.BankAccountId)

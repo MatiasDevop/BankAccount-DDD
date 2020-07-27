@@ -2,16 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BankAccountSystem.Model.Contract;
+using BankAccountSystem.Models;
 using BankAccountSystem.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BankAccountSystem.AppService;
 
 namespace BankAccountSystem
 {
@@ -34,15 +38,18 @@ namespace BankAccountSystem
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<BankAccountContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+                options.UseSqlServer(Configuration["Data:BankAccountSystem:ConnectionString"], b => b.MigrationsAssembly("BankAccountSystem")));
             services.AddTransient<IBankAccountRepository, BankAccountRepository>();
+
+            services.AddMvcCore().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -67,6 +74,8 @@ namespace BankAccountSystem
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.SeedDatabase(services.GetRequiredService<BankAccountContext>());
         }
     }
 }
