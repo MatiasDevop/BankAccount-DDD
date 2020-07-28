@@ -25,9 +25,6 @@ namespace BankAccountSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AccountNo")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 

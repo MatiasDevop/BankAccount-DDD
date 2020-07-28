@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BankAccountSystem.AppService;
+using BankAccountSystem.Model;
 
 namespace BankAccountSystem
 {
@@ -42,6 +43,12 @@ namespace BankAccountSystem
             services.AddDbContext<BankAccountContext>(options =>
                 options.UseSqlServer(Configuration["Data:BankAccountSystem:ConnectionString"], b => b.MigrationsAssembly("BankAccountSystem")));
             services.AddTransient<IBankAccountRepository, BankAccountRepository>();
+            services.AddTransient<BankAccountService>();
+            services.AddTransient<ApplicationBankAccountService>();
+
+            services.AddAutoMapper(cfg => cfg.AddProfile<ViewMapper>(),
+                AppDomain.CurrentDomain.GetAssemblies());
+
 
             services.AddMvcCore().SetCompatibilityVersion(CompatibilityVersion.Latest);
 

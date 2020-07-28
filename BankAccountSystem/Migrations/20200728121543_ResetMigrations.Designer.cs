@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankAccountSystem.Migrations
 {
     [DbContext(typeof(BankAccountContext))]
-    [Migration("20200727105725_Intial")]
-    partial class Intial
+    [Migration("20200728121543_ResetMigrations")]
+    partial class ResetMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,9 +25,6 @@ namespace BankAccountSystem.Migrations
                 {
                     b.Property<Guid>("BankAccountId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AccountNo")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Balance")

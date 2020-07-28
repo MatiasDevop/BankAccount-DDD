@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankAccountSystem.Migrations
 {
-    public partial class Intial : Migration
+    public partial class ResetMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,6 @@ namespace BankAccountSystem.Migrations
                 columns: table => new
                 {
                     BankAccountId = table.Column<Guid>(nullable: false),
-                    AccountNo = table.Column<Guid>(nullable: false),
                     Balance = table.Column<decimal>(nullable: false),
                     CustomerRef = table.Column<string>(nullable: true)
                 },

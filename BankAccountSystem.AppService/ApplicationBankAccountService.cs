@@ -69,10 +69,22 @@ namespace BankAccountSystem.AppService
             foreach (BankAccount acc in _bankRepository.FindAll())
             {
                 bankAccountViews.Add(_mapper.Map<BankAccountView>(acc));
-
             }
 
             return findAllBankAccountResponse;
+        }
+
+        public FindBankAccountResponse GetBankAccountBy(Guid Id)
+        {
+            FindBankAccountResponse bankAccountResponse = new FindBankAccountResponse();
+            BankAccount acc = _bankRepository.FindBy(Id);
+            BankAccountView bankAccountView = _mapper.Map<BankAccountView>(acc);
+            foreach (Transaction tran in acc.GetTransactions())
+            {
+                bankAccountView.Transaction.Add(_mapper.Map<TransactionView>(tran));
+            }
+            bankAccountResponse.BankAccount = bankAccountView;
+            return bankAccountResponse;
         }
 
     }

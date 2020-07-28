@@ -20521,6 +20521,21 @@
   "RootNamespace": "BankAccountSystem",
   "Documents": [
     {
+      "FilePath": "d:\\NET Development\\BankAccountSystem\\BankAccountSystem\\Views\\Home\\Transfer.cshtml",
+      "TargetPath": "Views\\Home\\Transfer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\NET Development\\BankAccountSystem\\BankAccountSystem\\Views\\Home\\Edit.cshtml",
+      "TargetPath": "Views\\Home\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\NET Development\\BankAccountSystem\\BankAccountSystem\\Views\\Home\\Deposit.cshtml",
+      "TargetPath": "Views\\Home\\Deposit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\NET Development\\BankAccountSystem\\BankAccountSystem\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
